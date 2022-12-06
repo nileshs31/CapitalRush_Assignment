@@ -55,6 +55,12 @@ public class GameMan : MonoBehaviour
     }
 
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+    }
+
     public void FindDirection()// -------- Written by Nilesh Sharma -------------
     {
         List<int> angles = new List<int>();
