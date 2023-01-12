@@ -158,7 +158,7 @@ public class GameMan : MonoBehaviour
         for (int i = 0; i < 36; i++)
         {
             Quaternion rotation = Quaternion.AngleAxis(ang, transform.up);
-            Debug.DrawRay(thief.transform.position, rotation * thief.transform.forward * 8, Color.green, 60);
+            Debug.DrawRay(thief.transform.position, rotation * thief.transform.forward * 8, Color.red, 60);
             ang += 10;
         }
     }
