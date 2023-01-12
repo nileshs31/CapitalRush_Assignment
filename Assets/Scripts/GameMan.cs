@@ -137,7 +137,7 @@ public class GameMan : MonoBehaviour
         }
 
         Quaternion rot = Quaternion.AngleAxis(bestAngle, transform.up);
- //       Debug.DrawRay(thief.transform.position, rot * thief.transform.forward * 8, Color.green, 2);
+        //Debug.DrawRay(thief.transform.position, rot * thief.transform.forward * 8, Color.green, 60);
 
         var ray2 = new Ray(thief.transform.position, rot * thief.transform.forward * 8);
         var pos = ray2.GetPoint(8f);
@@ -150,5 +150,16 @@ public class GameMan : MonoBehaviour
         var lr = lineRendGO.GetComponent<LineRenderer>();
         lr.SetPosition(0, lineRendGO.transform.position);
         lr.SetPosition(1, thief.transform.position);
+    }
+
+    private void OnDrawGizmos()  // to see all the angles in editor
+    {
+        int ang = 0;
+        for (int i = 0; i < 36; i++)
+        {
+            Quaternion rotation = Quaternion.AngleAxis(ang, transform.up);
+            Debug.DrawRay(thief.transform.position, rotation * thief.transform.forward * 8, Color.green, 60);
+            ang += 10;
+        }
     }
 }
